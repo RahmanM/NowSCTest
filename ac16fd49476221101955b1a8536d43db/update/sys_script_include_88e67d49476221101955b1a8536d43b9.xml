@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_293046_es2021.CheckWriter</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Example:&#13;
+&#13;
+var writer = new x_293046_es2021.CheckWriter();&#13;
+&#13;
+gs.debug(writer.write(9911111111123));</description>
+        <name>CheckWriter</name>
+        <script><![CDATA[let CheckWriter = class {
+
+    constructor() {
+        this.numberWords = {
+            0: "zero",
+            1: "one",
+            2: "two",
+            3: "three",
+            4: "four",
+            5: "five",
+            6: "six",
+            7: "seven",
+            8: "eight",
+            9: "nine",
+            10: "ten",
+            11: "eleven",
+            12: "twelve",
+            13: "thirteen",
+            14: "fourteen",
+            15: "fifteen",
+            16: "sixteen",
+            17: "seventeen",
+            18: "eighteen",
+            19: "nineteen",
+            20: "twenty",
+            30: "thirty",
+            40: "forty",
+            50: "fifty",
+            60: "sixty",
+            70: "seventy",
+            80: "eighty",
+            90: "ninety",
+            100: "one hundred",
+            1000: "one thousand",
+            1000000: "one million",
+            1000000000: "one billion",
+            1000000000000: "one trillion",
+            10000000000000: "one quadrillion"
+        };
+
+    }
+
+    write(number) {
+        return this.numberToWords(number);
+    }
+
+    numberToWords(num) {
+        if (num < 0) return "minus " + this.numberToWords(-num);
+        if (num < 20) return this.numberWords[num];
+        if (num < 100)
+            return (
+                this.numberWords[Math.floor(num / 10) * 10] + (num % 10 ? "-" + this.numberToWords(num % 10) : "")
+            );
+        if (num < 1000)
+            return (
+                this.numberWords[Math.floor(num / 100)] + " hundred" + (num % 100 ? " and " + this.numberToWords(num % 100) : "")
+            );
+        if (num < 1000000)
+            return (
+                this.numberToWords(Math.floor(num / 1000)) + " thousand" + (num % 1000 ? ", " + this.numberToWords(num % 1000) : "")
+            );
+        if (num < 1000000000)
+            return (
+                this.numberToWords(Math.floor(num / 1000000)) + " million" + (num % 1000000 ? ", " + this.numberToWords(num % 1000000) : "")
+            );
+        if (num < 1000000000000)
+            return (
+                this.numberToWords(Math.floor(num / 1000000000)) + " billion" + (num % 1000000000 ? ", " + this.numberToWords(num % 1000000000) : "")
+            );
+        if (num < 1000000000000000)
+            return (
+                this.numberToWords(Math.floor(num / 1000000000000)) + " trillion" + (num % 1000000000000 ? ", " + this.numberToWords(num % 1000000000000) : "")
+            );
+        if (num < 1000000000000000000)
+            return (
+                this.numberToWords(Math.floor(num / 1000000000000000)) + " quadrillion" + (num % 1000000000000000 ? ", " + this.numberToWords(num % 1000000000000000) : "")
+            );
+        return "number too large";
+    }
+}]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-04-30 05:59:12</sys_created_on>
+        <sys_id>88e67d49476221101955b1a8536d43b9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>CheckWriter</sys_name>
+        <sys_package display_value="es2021" source="x_293046_es2021">ac16fd49476221101955b1a8536d43db</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="es2021">ac16fd49476221101955b1a8536d43db</sys_scope>
+        <sys_update_name>sys_script_include_88e67d49476221101955b1a8536d43b9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-04-30 06:02:39</sys_updated_on>
+    </sys_script_include>
+</record_update>
